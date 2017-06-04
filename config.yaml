@@ -1,0 +1,12 @@
+telegram:
+    bot1:
+        token: укажите токен
+        owner: укажите владельца (не обязательно)
+
+users:
+    k.bashevoy: укажите chat_id
+    default: 0
+
+stickers:
+    default: CAADAgADOQEAAjbsGwVonn-MGIBY3AI
+    success: CAADAgADQAADyIsGAAE7MpzFPFQX5QI
