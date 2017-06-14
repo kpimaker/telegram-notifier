@@ -4,7 +4,7 @@ telegram:
         owner: укажите владельца (не обязательно)
 
 users:
-    k.bashevoy: укажите chat_id
+    k.bashevoy: укажите chat_id (чтобы узнать свой chat_id напишите боту любое сообщение и запустите скрипт python get_chat_id.py)
     default: 0
 
 stickers:

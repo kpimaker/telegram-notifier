@@ -15,19 +15,12 @@ import ast
 class notifierClass:
     """
     Класс для отправки уведомлений от имени вашего бота
-    Быстрый старт:
-        ...
-
-    Для отправки сообщений вы должны быть вписаны в список адресатов users. Чтобы внести себя в список узнайте свой chat_id с ботом:
-        1. Начните диалог с ботом любым сообщением
-        2. В питоне выполните команду analyticsTelegram('default').chatID(). Вам будет показан chat_id последнего диалога с ботом. Убедитесь, что соответствующее имя пользователя ваше. Скопируйте chat_id, выберите свой логин и пришлите на k.bashevoy@rambler-co.ru
-        3. Как только ваш логин будет внесен в класс вы сможете отправлять уведомления
-        4. Чтобы просмотреть текущий список пользователей выполните:
-            print analyticsTelegram('default').users
+    https://github.com/kpimaker/telegram-notifier
     """
 
     def __init__( self, user = 'default' ):
         """
+        Инициализация пользователя и его проверка в списке логинов (файл config.yaml)
         """
 
         self.user = user
@@ -137,6 +130,7 @@ class notifierClass:
         Отправка сообщения message от имени бота. В текущей версии берутся первые 4000 символов, чтобы попасть в ограничения Телеграма
 
         Пример
+        notifierClass( 'ivan.ivanov' ).notification( 'Посчиталось ура' )
         """
 
         # проверяем есть ли текущий пользователь в списке доступов config.yaml
@@ -151,6 +145,7 @@ class notifierClass:
         Отправка сообщения message от имени бота. В текущей версии берутся первые 4000 символов, чтобы попасть в ограничения Телеграма
 
         Пример
+        notifierClass( 'ivan.ivanov' ).sticker( 'success' )
         """
 
         # проверяем есть ли текущий пользователь в списке доступов config.yaml
@@ -160,3 +155,7 @@ class notifierClass:
         if self.ok:
             if sticker in self.config['stickers']:
                 self.bot.sendSticker( chat_id = self.chat_id, sticker = self.config['stickers'][ sticker ] )
+
+if __name__ == '__main__':
+    notifierClass( 'ivan.ivanov' ).notification( 'Посчиталось ура' )
+    notifierClass( 'ivan.ivanov' ).sticker( 'success' )
